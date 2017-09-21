@@ -21,6 +21,9 @@ import struct
 import time
 
 from adb import usb_exceptions
+import sys
+reload(sys)
+sys.setdefaultencoding('ISO-8859-1')
 
 
 # Maximum amount of data in an ADB packet.
