@@ -19,9 +19,10 @@ host side.
 
 import struct
 import time
+import sys
+from importlib import reload
 
 from adb import usb_exceptions
-import sys
 reload(sys)
 sys.setdefaultencoding('ISO-8859-1')
 
