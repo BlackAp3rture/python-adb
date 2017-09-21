@@ -20,11 +20,21 @@ host side.
 import struct
 import time
 import sys
-from importlib import reload
 
 from adb import usb_exceptions
-reload(sys)
-sys.setdefaultencoding('ISO-8859-1')
+try:
+    reload(sys) 
+    sys.setdefaultencoding('ISO-8859-1')
+except NameError:
+    try:
+        from importlib import reload 
+        reload(sys)
+        sys.setdefaultencoding('ISO-8859-1')
+    except ImportError:
+        from imp import reload  
+        reload(sys)
+        sys.setdefaultencoding('ISO-8859-1')
+
 
 
 # Maximum amount of data in an ADB packet.
