@@ -22,20 +22,10 @@ import time
 import sys
 
 from adb import usb_exceptions
-try:
-    reload(sys) 
-    sys.setdefaultencoding('ISO-8859-1')
-except NameError:
-    try:
-        from importlib import reload 
-        reload(sys)
-        sys.setdefaultencoding('ISO-8859-1')
-    except ImportError:
-        from imp import reload  
-        reload(sys)
-        sys.setdefaultencoding('ISO-8859-1')
 
-
+if sys.version[0] == '2':
+    reload(sys)
+    sys.setdefaultencoding("ISO-8859-1")
 
 # Maximum amount of data in an ADB packet.
 MAX_ADB_DATA = 4096
